@@ -1,13 +1,52 @@
 ---
-layout: default
-title: My New Jekyll Site
+layout:   default
+slug: blog
+meta-tag: global
+title:    SUNSD's BLOG
 ---
-
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 main-content" id="post_overview">
+      <ul class="list-group">
+        {% for post in paginator.posts %}
+        <a href="{{ post.url }}" class="list-group-item active col-md-12 post_excerpt">
+          <h3 class="list-group-item-heading">{{ post.title }}</h3>
+          <span class="date post_date">{{ post.date | date: "%b %d %Y" }}</span>
+          <p class="list-group-item-text"> {{ post.desc }} </p>
+        </a>
+        <hr style="clear:both" />
+        {% endfor %}
+      </ul>
+      <ul class="pagination">
+        {% if paginator.previous_page %}
+          {% if paginator.previous_page == 1 %}
+          <li class="active"><a href="/">&laquo;</a></li>
+          {% else %}
+          <li class="active"><a href="/page{{ paginator.previous_page }}">&laquo;</a></li>
+          {% endif %}
+        {% else %}
+          <li class="disabled"><a href="#">&laquo;</a></li>
+        {% endif %}
+        {% if paginator.page == 1 %}
+          <li> <a href="/"><span id="current-page-num">1</span></a> </li>
+        {% else %}
+          <li> <a href="/">1</a> </li>
+        {% endif %}
+        {% for count in (2..paginator.total_pages) %}
+        <li>
+          {% if count == paginator.page %}
+          <a href="/page{{ count }}"><span class="current-page-num">{{ count }}</span></a>
+          {% else %}
+          <a href="/page{{ count }}">{{ count }}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+        {% if paginator.next_page %}
+          <li class="active"><a href="/page{{ paginator.next_page }}">&raquo;</a></li>
+        {% else %}
+          <li class="disabled"><a href="#">&raquo;</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
 </div>

@@ -1,44 +1,46 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+<html lang="zh-CN">
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    {% include header.html %}
+  </head>
+  <body>
+    <!-- Docs master nav -->
+    {% include nav-main.html %}
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
+    <!-- Page content of course! -->
+    <div class="page-content">
+      {{ content }}
+    </div>
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+    <a id="btt" class="btn btn-default" href="#">
+      <i class="fa fa-angle-double-up"></i> Top
+    </a>
 
-    </head>
-    <body>
-
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
-
-          {{ content }}
-
-          <div class="footer">
-            <div class="contact">
-              <p>
-                My Name<br />
-                What You Are<br />
-                sunsd0@gmail.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/sunsd">github.com/sunsd</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
-
-    </body>
+    <!-- JS and analytics only. -->
+    {% include footer.html %}
+    <script>
+    $(document).ready(function(){
+      // hide #btt first
+      $("#btt").hide();
+      // fade in #btt
+      $(function () {
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 200) {
+            $('#btt').fadeIn();
+          } else {
+            $('#btt').fadeOut();
+          }
+        });
+        // scroll body to 0px on click
+        $('#btt').click(function () {
+          $('body,html').animate({
+            scrollTop: 0
+          }, 500);
+          return false;
+        });
+      });
+    });
+    </script>
+  </body>
 </html>

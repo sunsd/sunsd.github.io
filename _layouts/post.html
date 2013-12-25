@@ -1,9 +1,51 @@
 ---
 layout: default
 ---
-<h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_string }}</p>
 
-<div class="post">
-{{ content }}
+<div class="container">
+  <div class="row">
+    <div class="col-md-9 col-md-offset-1 main-content" id="post" role="main">
+      <article class="content">
+        <div id="post-meta">
+          Categories:
+          {%for cg in page.categories%}
+          <!--<a href="/category.html#{{cg}}">{{cg}}</a>-->
+          <a href="#">{{ cg }}</a>
+          {%if forloop.index < forloop.length %}
+          ,
+          {%endif%}
+          {%endfor%}
+          &emsp;&emsp;&emsp;&emsp;
+          Tags: {{ page.tags | join: ', ' }}
+          &emsp;&emsp;&emsp;&emsp;
+          <time date="{{ page.date }}">{{ page.date|date: "%Y-%m-%d"}}</time>
+        </div>
+        <div id="post-title" class="page-header">
+          <h2>{{ page.title }}</h2>
+        </div>
+
+        {{ content }}
+
+        <div class="post-eof"><b>&lsaquo;end&rsaquo;</b></div>
+        <hr style="clear:both" />
+
+        <div class="next-post-link">
+          <ul class="pager">
+          {%if page.previous%}
+            <li class="previous">
+              <a class="pull-left" href="{{page.previous.url}}"><i class="fa fa-arrow-left"></i> {{page.previous.title}}</a>
+            </li>
+          {%endif%}
+          {%if page.next%}
+            <li class="next">
+              <a class="pull-right" href="{{page.next.url}}">{{page.next.title}} <i class="fa fa-arrow-right"></i></a>
+            </li>
+          {%endif%}
+          </ul>
+        </div>
+        <hr style="clear:both" />
+      </article>
+    </div>
+  </div>
 </div>
+
