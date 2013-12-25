@@ -7,11 +7,11 @@ permalink: /posts/using-shell-in-work-1.html
 desc: "本文针对工作中遇到的多目录切换，频繁修改，安装问题，给出了一个解决方案。"
 ---
 ### 说明
-下面的脚本*依赖*2个自定义环境变量:`$PROJ`，`$MOD`，分别显示定义了当前的默认`工程名`及`模块`。如果没有设定的话，脚本会在执行过程中尝试自动获取。当前，这必须是在工程目录下时才可能猜正确。
+下面的脚本*依赖*2个自定义环境变量:`$PROJ`，`$MOD`，分别显式定义了当前的默认`工程名`及`模块`。如果没有设定的话，脚本会在执行过程中尝试自动获取。当前，这必须是在工程目录下时才可能猜正确。
 ### 编写共用脚本
 - confirm: 输出确认信息，选择`y/yes`继续，*否则*默认停止执行。
 
-{%highlight sh%}
+{% highlight sh linenos %}
     #! /bin/sh
     # 2013/11/15, sunsd
     # confirm
@@ -31,11 +31,11 @@ desc: "本文针对工作中遇到的多目录切换，频繁修改，安装问�
         esac
     }
     confirm "$@"
-{%endhighlight%}
+{% endhighlight %}
 
 - ct: 给定参数`n`，截取*前面n级目录*并输出。**注意**，这里把`/`作为一级目录。
 
-{%highlight sh%}
+{% highlight sh linenos %}
     #! /bin/sh
     # 2013/12/08, sunsd
     # ct, cut the top n level of the directory
@@ -56,11 +56,11 @@ desc: "本文针对工作中遇到的多目录切换，频繁修改，安装问�
         echo "Warning: argument must a number!" >&2
         exit 1
     fi
-{%endhighlight%}
+{% endhighlight %}
 
 - pd: 输出当前的工程*主目录*。如工程名为`SZ5555`，则输出为`project/SZ5555/ccsrc`。
 
-{%highlight sh%}
+{% highlight sh linenos %}
     #!/bin/sh
     # 2012/12/12, sunsd
     # pd, print the root work directory of the project
@@ -81,11 +81,11 @@ desc: "本文针对工作中遇到的多目录切换，频繁修改，安装问�
         echo $dir
     }
     pdirname
-{%endhighlight%}
+{% endhighlight %}
 
 - inst: 输出*某个模块的安装目录*。通过读取Makefile获得。
 
-{%highlight sh%}
+{% highlight sh linenos %}
     #!/bin/sh
     # 2013/12/13, sunsd
     # inst, fetch the install dir in the Makefile
@@ -118,24 +118,24 @@ desc: "本文针对工作中遇到的多目录切换，频繁修改，安装问�
         echo "Error: module { $module } not found!" >&2
         exit 1
     fi
-{%endhighlight%}
+{% endhighlight %}
 
 ### 脚本化常用操作
 - cd2: 调用`ct`实现*向上*切换到第n级目录。
 
-{%highlight sh%}
+{% highlight sh linenos %}
     #! /bin/sh
     # 2013/12/08, sunsd
     # cd2
     dir=$(ct $1)
     cd $dir
-{%endhighlight%}
+{% endhighlight %}
 
 到这还差一步：在`.bashrc`中加入命令别名，`alias c='. cd2'`。最后，更新环境变量，`. ~/.bashrc`。至此，可以通过在终端输入`c 4`切换到**工程主目录**了（当然，还可以更简：`alias s='c 4'`，现在输入`s`就行了）。其实ct更多地用在别处。
 
 - wp: 快速安装修改好的文件。
 
-{%highlight sh%}
+{% highlight sh linenos %}
     #!/bin/sh
     # 2013/12/02, sunsd
     # wp, install the given file
@@ -156,13 +156,12 @@ desc: "本文针对工作中遇到的多目录切换，频繁修改，安装问�
     else
         echo "Error: Path is not valid!" >&2
     fi
-{%endhighlight%}
+{% endhighlight %}
 
 接下来参照上面对脚本`cd2`的处理进行类似操作即可，如命名为`wp`命令。
 为了让脚本更实用，将如下代码插入`~/.vimrc`中：
 
-
-{%highlight vim%}
+{% highlight vim linenos %}
     map <F11> :call Cf2wf()<CR>
     "copy file to webframe dir
     function Cf2wf()
@@ -171,7 +170,7 @@ desc: "本文针对工作中遇到的多目录切换，频繁修改，安装问�
             execute "!wp ".path
         endif
     endfunction
-{%endhighlight%}
+{% endhighlight %}
 
 现在可以在vim中通过按F11一键安装文件（*安装前记得先`:w`保存*）。
 
@@ -179,22 +178,22 @@ desc: "本文针对工作中遇到的多目录切换，频繁修改，安装问�
 
 将如下配置加入`~/.vimrc`。
 
-{%highlight vim%}
+{% highlight vim linenos %}
     " backup
     set bk
     "backupdir, set in ~/.bashrc: export VIMBKDIR=~/tmp
     set bdir=$VIMBKDIR
     au BufWritePre * let &bex = '-' . strftime("%y%b%d%R") . '~'
-{%endhighlight%}
+{% endhighlight %}
 
 其中`$VIMBKDIR`是在`~/.bashrc`中自定义的备份目录，我用的`~/tmp/`。现在每次修改文件都会产生一个备份文件。如果`$VIMBKDIR`不存在会提示保存不了。需要手动新建该备份目录。将`$VIMBKDIR`写入`～/.bashrc`后记得执行`source`命令！否则还是会遇到该问题。可以在vim中输入`:h bex`查看详细文档。
 
 - sc: 在工作目录与安装目录间快速切换
 
-{%highlight sh%}
-#!/bin/sh
-# 2013/12/13, sunsd
-# sc, switch between the project's work dir and the install dir
+{% highlight sh linenos %}
+    #!/bin/sh
+    # 2013/12/13, sunsd
+    # sc, switch between the project's work dir and the install dir
 
     module=$MOD
     if [ $# -gt 0 ]; then
@@ -210,13 +209,13 @@ desc: "本文针对工作中遇到的多目录切换，频繁修改，安装问�
         cmd="cd $instdir/${pwd#$moddir}"
     fi
     eval $cmd
-{%endhighlight%}
+{% endhighlight %}
 
 ### 其他脚本
 - ack: 非常实用的搜索脚本，官网<http://beyondgrep.com>。搜索多个关键字好像目前无解。但这可以用`grep -e "x1" -e "x2"`这种形式代替。其中，`x1`, `x2`是要搜索的关键字。
 - p: 转换`time_t`型的*unix_time*，下面是一个简单实现。编译后放入`~/home/bin/`中即可。我取名`p`。
 
-{%highlight c%}
+{% highlight c linenos %}
     #include <sys/types.h>
     #include <time.h>
     #include <stdio.h>
@@ -238,5 +237,5 @@ desc: "本文针对工作中遇到的多目录切换，频繁修改，安装问�
 
         return 0;
     }
-{%endhighlight%}
+{% endhighlight %}
 
