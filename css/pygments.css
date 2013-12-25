@@ -1,4 +1,4 @@
-pre code {
+pre code{
   white-space:pre;
   font-family:monospace,serif;
   font-size:13px;
@@ -31,22 +31,26 @@ pre::-webkit-scrollbar-thumb:horizontal{
 	background-color:#eef;
 	padding:1em;
 	margin:0;
-    border:0;
+  border:0;
 	-webkit-border-radius:0.8em;
 	-moz-border-radius:0.8em;
-    border-radius:0.8em;
+  border-radius:0.8em;
 }
 .highlight .lineno{
 	padding-right:24px;
 	color:#8f908a
 }
+.terminal{
+  box-shadow:2px 1px 2px #bbb;
+}
 .terminal .panel{
 	-webkit-border-radius:0.5em;
 	-moz-border-radius:0.5em;
-    border-radius:0.5em;
+  border-radius:0.5em;
 }
 .terminal .panel-heading{
 	padding:0.5em 1.5em;
+  text-align:center;
 }
 .terminal .panel-body{
 	padding:0;
@@ -55,10 +59,9 @@ pre::-webkit-scrollbar-thumb:horizontal{
 	margin:0;
 }
 .terminal .highlight pre{
-	padding:0;
 	-webkit-border-radius:0;
 	-moz-border-radius:0;
-    border-radius:0;
+  border-radius:0;
 }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */

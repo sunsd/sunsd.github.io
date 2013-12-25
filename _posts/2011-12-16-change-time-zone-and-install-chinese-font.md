@@ -41,13 +41,13 @@ UTC=no 或者 UTC=yes
 <div class="panel panel-default terminal">
   <div class="panel-heading">Terminal</div>
   <div class="panel-body">
-	{% highlight sh %}
+{% highlight sh %}
 	 ~ $ su
 	~ $ cd /usr/share/fonts/truetype/
 	~ $ chmod 644 yyy.ttf
 	~ $ mkfontscale
 	~ $ mkfontdir
 	~ $ fc-cache
-	{% endhighlight %}
+{% endhighlight %}
   </div>
 </div>
