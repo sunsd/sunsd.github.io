@@ -34,20 +34,20 @@ UTC=no 或者 UTC=yes
 然后选择安装搜到的字体 `apt-get install xxx` ，其中`xxx`是你打算安装的中文字体名 。
 
 #### 法二
-从Windows系统（`C:\Windows\Fonts\`）拷贝中文字体**yyy.ttf**到Linux `/usr/share/fonts/truetype`，其中，`yyy`是字体名。
+可以从Windows系统（`C:\Windows\Fonts\`）拷贝中文字体`yyy.ttf`到Linux `/usr/share/fonts/truetype`，其中，`yyy`是字体名。下面用**DejaVuSansMono.ttf**（实际上，该字体不含中文，Windows下可以在注册表中修改*FontLink*连接到风格相搭配的中文字体，如**simhei.ttf**）代替。
 
-如果没有改变，继续下面的步骤，终端输入：
+如有必要，继续下面的步骤：
 
 <div class="panel panel-default terminal">
   <div class="panel-heading">Terminal</div>
   <div class="panel-body">
-{% highlight console %}
-	  $ su
-	$ cd /usr/share/fonts/truetype/
-	$ chmod 644 yyy.ttf
-	$ mkfontscale
-	$ mkfontdir
-	$ fc-cache
+{% highlight shell-session %}
+sunsd@suse:~$ cd /usr/share/fonts/truetype/
+sunsd@suse:truetype$ sudo chmod 644 DejaVuSansMono.ttf
+root's password:
+sunsd@suse:truetype$ sudo mkfontscale
+sunsd@suse:truetype$ sudo mkfontdir
+sunsd@suse:truetype$ sudo fc-cache
 {% endhighlight %}
   </div>
 </div>
