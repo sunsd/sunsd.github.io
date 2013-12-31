@@ -38,12 +38,16 @@ UTC=no 或者 UTC=yes
 
 如果没有改变，继续下面的步骤，终端输入：
 
-{% highlight sh linenos %}
-    $ su
-    $ cd /usr/share/fonts/truetype/
-    $ chmod 644 yyy.ttf
-    $ mkfontscale
-    $ mkfontdir
-    $ fc-cache
-{% endhighlight %}
-
+<div class="panel panel-default terminal">
+  <div class="panel-heading">Terminal</div>
+  <div class="panel-body">
+	{% highlight sh %}
+	 ~ $ su
+	~ $ cd /usr/share/fonts/truetype/
+	~ $ chmod 644 yyy.ttf
+	~ $ mkfontscale
+	~ $ mkfontdir
+	~ $ fc-cache
+	{% endhighlight %}
+  </div>
+</div>
