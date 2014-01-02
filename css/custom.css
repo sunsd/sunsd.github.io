@@ -120,8 +120,6 @@ ul.pagination li {
 }
 pre code{
   white-space:pre;
-  font-family:monospace,serif;
-  font-size:13px;
 }
 pre::-webkit-scrollbar{
 	height:12px;
