@@ -18,10 +18,12 @@ author:
 repo: https://github.com/sunsd/sunsd.github.io/
 
 
+safe: true
+lsi: true
+highlighter: pygments
 permalink: pretty
 exclude: ["README.md", ".rvmrc", ".rbenv-version", "Gemfile", "Gemfile.lock", "Rakefile"]
 markdown: redcarpet
-pygments: true
 paginate: 10
 paginate_path: "page:num"
 
