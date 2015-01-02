@@ -3,7 +3,6 @@ layout: post
 title: 修改Debian时区，配置中文环境
 category: Linux
 tags: Debian timezone font
-permalink: /posts/change-time-zone-and-install-chinese-font.html
 ---
 ### 配置时区
 终端输入 `sudo dpkg-reconfigure tzdata`

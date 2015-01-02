@@ -3,7 +3,6 @@ layout: post
 title: shell在工作中的应用 小记（一）
 category: shell
 tags: shell linux
-permalink: /posts/using-shell-in-work-1.html
 ---
 ### 说明
 下面的脚本*依赖*2个自定义环境变量:`$PROJ`，`$MOD`，分别显式定义了当前的默认`工程名`及`模块`。如果没有设定的话，脚本会在执行过程中尝试自动获取。当前，这必须是在工程目录下时才可能猜正确。
