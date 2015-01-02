@@ -2,7 +2,7 @@
 layout:   default
 slug: blog
 meta-tag: global
-title:    SUNSD's BLOG
+title:    {{ site.title }}
 ---
 <div class="container">
   <div class="row">
@@ -12,7 +12,7 @@ title:    SUNSD's BLOG
         <a href="{{ post.url }}" class="list-group-item active col-md-12 post_excerpt">
           <h3 class="list-group-item-heading">{{ post.title }}</h3>
           <span class="date post_date">{{ post.date | date: "%b %d %Y" }}</span>
-          <p class="list-group-item-text"> {{ post.desc }} </p>
+          <p class="list-group-item-text"> {{ post.excerpt }} </p>
         </a>
         <hr style="clear:both" />
         {% endfor %}

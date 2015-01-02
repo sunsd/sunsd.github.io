@@ -4,10 +4,10 @@ title: 修改Debian时区，配置中文环境
 category: Linux
 tags: Debian timezone font
 permalink: /posts/change-time-zone-and-install-chinese-font.html
-desc: "更改系统时区；安装中文字体，如微软雅黑。"
 ---
 ### 配置时区
 终端输入 `sudo dpkg-reconfigure tzdata`
+
 
 它会改这两个文件：
 
@@ -41,10 +41,9 @@ UTC=no 或者 UTC=yes
 <div class="panel panel-default terminal">
   <div class="panel-heading">Terminal</div>
   <div class="panel-body">
-{% highlight shell-session %}
+{% highlight sh %}
 sunsd@suse:~$ cd /usr/share/fonts/truetype/
 sunsd@suse:truetype$ sudo chmod 644 DejaVuSansMono.ttf
-root's password:
 sunsd@suse:truetype$ sudo mkfontscale
 sunsd@suse:truetype$ sudo mkfontdir
 sunsd@suse:truetype$ sudo fc-cache

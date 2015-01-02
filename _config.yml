@@ -1,10 +1,9 @@
-title: "Sunsd's Blog"
+title: "SUNSD's BLOG"
 description: "sunsd's blog on github"
 motto: "A Little Bit More"
 classic: "The Old Man and the Sea"
 tagline: "&quot;But man is not made for defeat,&quot; he said. &quot;A man can be destroyed but not defeated.&quot;"
-url: https://sunsd.github.io/
-keywords: "sunsd, blog, javascript, vim, shell, c++"
+keywords: "sunsd, blog, vim, c++, js, shell"
 copyright: 2013 Matt Sun. Powered by <a href="http://jekyllrb.com">Jekyll</a> using <a href="http://getbootstrap.com">Bootstrap</a>, <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> and <a href="https://pages.github.com">GitHub Pages</a>. <a href="#">Privacy and Disclosure Policies</a>.
 
 project: Blog
@@ -14,20 +13,17 @@ author:
   enname: Matt Sun
   email: sunsd0@gmail.com
   github: https://github.com/sunsd/
-  twitter: "Not Yet"
-repo: https://github.com/sunsd/sunsd.github.io/
+  twitter: "None"
 
+excerpt_separator: "\n\n"
 
-safe: true
-lsi: true
 highlighter: pygments
 permalink: pretty
 exclude: ["README.md", ".rvmrc", ".rbenv-version", "Gemfile", "Gemfile.lock", "Rakefile"]
-markdown: redcarpet
 paginate: 10
 paginate_path: "page:num"
 
-css_bs: /css/bootstrap.css
-css_fa: /css/font-awesome.css
-js_bs: /js/bootstrap.min.js
-js_jquery: http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js
+css_bs: http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css
+css_fa: http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
+js_bs: http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
+js_jq: http://code.jquery.com/jquery-2.1.3.min.js
