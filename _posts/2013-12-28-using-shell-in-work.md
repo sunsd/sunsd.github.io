@@ -70,7 +70,7 @@ fi
 
 {% highlight sh linenos %}
 #!/bin/sh
-# 2012/12/12, sunsd
+# 2013/12/12, sunsd
 # pd, print the root work directory of the project
 pdirname()
 {
