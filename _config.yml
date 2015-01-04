@@ -16,6 +16,10 @@ author:
 
 excerpt_separator: "\n\n"
 
+markdown: redcarpet
+redcarpet:
+  extensions: ['tables', 'fenced_code_blocks']
+
 highlighter: pygments
 permalink: pretty
 exclude: ["README.md", ".rvmrc", ".rbenv-version", "Gemfile", "Gemfile.lock", "Rakefile"]

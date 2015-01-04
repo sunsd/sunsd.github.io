@@ -8,9 +8,9 @@ tags: chrome reinstall
 删除下面两处注册表项即可。
 
 
-{% highlight registry linenos %}
+```registry
 [HKEY_CURRENT_USER\Software\Google\Update\Clients\{8A...96}]
 [HKEY_CURRENT_USER\Software\Google\Update\ClientStatue\{8A...96}]
-{% endhighlight %}
+```
 
 至此，问题解决，可以重装了。

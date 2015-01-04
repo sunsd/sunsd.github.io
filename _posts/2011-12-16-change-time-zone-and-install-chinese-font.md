@@ -10,10 +10,12 @@ tags: Debian timezone font
 
 它会改这两个文件：
 
-- `/etc/timezone` #*系统时区*
-
-- `/etc/localtime` #*本地时间*，还可以这样手动更改：
-    `ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime`
+```sh
+/etc/timezone #系统时区
+/etc/localtime #本地时间
+#还可以这样手动更改：
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+```
 
 是否用UTC时间可以改这个文件: `/etc/default/rcS`
 
