@@ -27,9 +27,6 @@ body,
 #post-eof {
   text-align: center;
 }
-#archive {
-  padding-top: 10px;
-}
 ul.pagination {
   margin: 0 auto;
   position: relative;
@@ -117,6 +114,7 @@ ul.pagination li {
   border-radius:0.8em;
   white-space:pre;
   overflow:auto;
+  word-wrap:normal;/*代码不换行*/
 }
 pre code{
   white-space:pre;
