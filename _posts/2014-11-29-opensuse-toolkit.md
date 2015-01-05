@@ -1,8 +1,8 @@
 ---
 layout: post
 title: OpenSUSE toolkit
-category: linux
-tags: opensuse
+category: Linux
+tags: OpenSUSE
 ---
 计划：找个时间写个脚本，自动安装/升级所有工具软件，不要太依赖系统是否已安装。
 

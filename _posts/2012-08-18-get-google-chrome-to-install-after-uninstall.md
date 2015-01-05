@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 谷歌浏览器卸载后无法重装的解决办法
-category: browser
+category: Windows
 tags: chrome reinstall
 ---
 ### 打开注册表[Run - regedit]
