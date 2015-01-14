@@ -12,6 +12,7 @@ tags: c++
 #include <string>
 #include <sstream>
 #include <bitset>
+#include <iomanip>
 
 //二进制串转HEX串。如：0111001001 => 01C9
 //注意：未检查参数合法性，调用时需保证参数只含0和1。
@@ -29,10 +30,17 @@ string Bin2Hex(const string &s_bin)
 	{
 		strBin = string(8 - rem, '0') + strBin;
 	}
-	for (int i = 0, len = strBin.length() / 4; i < len; ++i)
+    /*
+	for (int i = 0, len = strBin.length(); i < len; i +=  4)
 	{
-		bitset<4> bsChar(strBin.substr(i * 4, 4));
+		bitset<4> bsChar(strBin.substr(i, 4));
 		oss << hex << uppercase << bsChar.to_ulong();
+	}
+    */
+	for (int i = 0, len = strBin.length(); i < len; i += 8)
+	{
+		bitset<8> bsChar(strBin.substr(i, 8));
+		oss << hex << uppercase << setw(2) << setfill('0') << bsChar.to_ulong();
 	}
 	return oss.str();
 }
