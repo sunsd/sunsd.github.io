@@ -68,3 +68,22 @@ string Hex2Bin(const string &s_hex)
 	return oss.str();
 }
 ```
+
+###其他
+```c++
+//移除小数末尾的0，如"1.00" => "1"
+string RemoveTailZero(const string &s_dec)
+{
+	size_t ppos = s_dec.find('.');
+	if (ppos != string::npos)
+	{
+		size_t i = s_dec.length() - 1; //从后往前遇到非0即止
+		while (i > ppos && s_dec[i] == '0')
+		{
+			--i;
+		}
+		return s_dec.substr(0, (i == ppos ? i : i + 1));
+	}
+	return s_dec;
+}
+```
